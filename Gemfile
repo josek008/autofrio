@@ -9,8 +9,6 @@ gem 'bootstrap-will_paginate', '0.0.6'
 gem "state_machine", "~> 1.2.0"
 gem "paperclip", "~> 3.0"
 
-gem 'sqlite3'
-
 group :development, :test do
   gem 'rspec-rails', '2.11.0'
   gem 'guard-rspec', '1.2.1'
@@ -20,6 +18,7 @@ end
 
 group :development do
   gem 'annotate', '2.5.0'
+  gem 'sqlite3'
 end
 
 # Gems used only for assets and not required
