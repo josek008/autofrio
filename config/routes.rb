@@ -1,4 +1,22 @@
 Autofrio::Application.routes.draw do
+
+  root :to => 'static_pages#inicio'
+
+  resources :brands
+  resources :lines
+  resources :categories
+  resources :products
+
+  resources :sessions,  only: [:new, :create, :destroy] 
+
+  match '/empresa',    to: 'static_pages#empresa'
+  match '/catalogo',    to: 'static_pages#catalogo'
+  match '/contacto',   to: 'static_pages#contacto'
+  match '/admin',    to: 'static_pages#admin'
+
+  match '/signin',  to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
