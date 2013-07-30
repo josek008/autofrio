@@ -1,0 +1,12 @@
+<tr>
+	<td><%= brand.name %></td>
+	<td><%= image_tag brand.photo.url(:thumb) %></td>
+	<td><%= brand.products.count %></td>
+	<td>
+		<div class="btn-group">
+			<%= link_to 'Editar', edit_brand_path(brand), class: 'btn' %>
+			<%= link_to 'Eliminar', brand, method: :delete,
+			data: {confirm: "Existen "+ pluralize(brand.products.count, "producto")+ " relacionados con esta marca. Recomendamos que mueva todos los productos a otra marca, antes de eliminar esta. ¿Estás seguro de eliminarla?"}, class: 'btn' %></td>
+		</div>
+	</td>
+</tr>

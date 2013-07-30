@@ -1,0 +1,14 @@
+<% provide(:title, 'Nueva Marca') %>
+<h1>Nueva Marca</h1>
+
+<div class="row">
+	<div class="span4 offset3">
+		<%= form_for @brand, class: "form-horizontal", :html => { :multipart => true } do |f| %>
+		<%= render 'shared/error_messages', object: f.object %>
+		<%= render 'fields', :f => f, :b => @brand %>
+		<div class="actions">
+			<%= f.submit "Crear", class: "btn btn-large btn-primary" %>
+		</div>
+		<% end %>
+	</div>
+</div>

@@ -13,11 +13,11 @@
 #
 
 class Brand < ActiveRecord::Base
-	attr_accessible :name
+	attr_accessible :name, :photo
 
 	has_many :lines
 	has_many :products, through: :lines
-	has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+	has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "missing_:style.png"
 
 	validates :name, presence: true, uniqueness: true
 	validates_attachment_size :photo, :less_than => 5.megabytes
