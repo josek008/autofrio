@@ -15,11 +15,11 @@
 #
 
 class Product < ActiveRecord::Base
-	attr_accessible :category_id, :comments, :reference
+	attr_accessible :category_id, :comments, :reference, :photo, :line_ids
 
 	has_and_belongs_to_many :lines
 	belongs_to :category
-	has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+	has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "missing_:style.png"
 
 	validates :category_id, presence: true
 	validates :comments, length: { maximum: 200 }

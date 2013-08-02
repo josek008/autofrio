@@ -1,9 +1,9 @@
 class ProductsController < ApplicationController
-	before_filter :signed_in_user, only: [:new, :create, :edit, :update, :destroy]
+	#before_filter :signed_in_user, only: [:new, :create, :edit, :update, :destroy]
 
 	def new
 		@product = Product.new
-		@brands = Brand.all
+		@lines = Line.all
 		@categories = Category.all
 	end
 
@@ -20,7 +20,7 @@ class ProductsController < ApplicationController
 
 	def edit
 		@product = Product.find(params[:id])
-		@brands = Brand.all
+		@lines = Line.all
 		@categories = Category.all
 	end
 
@@ -46,5 +46,6 @@ class ProductsController < ApplicationController
 
 	def show
 		@product = Product.find(params[:id])
+		@lines = @product.lines
 	end
 end

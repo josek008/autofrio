@@ -1,0 +1,24 @@
+<% provide(:title, 'Productos') %>
+<h1>Productos</h1>
+<table class="table table-hover table-condensed">
+	<thead>
+		<th>Referencia</th>
+		<th>Comentarios</th>
+		<th>Categoria</th>
+		<th>Imagen</th>
+		<th>Lineas Compatibles</th>
+		<th>Acciones</th>
+	</thead>
+	<tbody>
+		<% if @products.any? %>
+		<%= render @products %>
+		<% else %>
+		<caption>No existen productos creados.</caption>
+		<% end %>
+	</tbody>
+</table>
+
+<ul class="nav nav-pills">
+	<li><%= link_to 'Crear nuevo producto', new_product_path %></li>
+</ul>
+

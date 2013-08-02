@@ -2,6 +2,7 @@
 	<td><%= brand.name %></td>
 	<td><%= image_tag brand.photo.url(:thumb) %></td>
 	<td><%= brand.products.count %></td>
+	<td><%= brand.lines.count %></td>
 	<td>
 		<div class="btn-group">
 			<%= link_to 'Editar', edit_brand_path(brand), class: 'btn' %>

@@ -1,0 +1,12 @@
+<tr>
+	<td><%= category.name %></td>
+	<td><%= image_tag category.photo.url(:thumb) %></td>
+	<td><%= category.products.count %></td>
+	<td>
+		<div class="btn-group">
+			<%= link_to 'Editar', edit_category_path(category), class: 'btn' %>
+			<%= link_to 'Eliminar', category, method: :delete,
+			data: {confirm: "Existen "+ pluralize(category.products.count, "producto")+ " relacionados con esta categoria. Recomendamos que mueva todos los productos a otra categoria, antes de eliminar esta. ¿Estás seguro de eliminarla?"}, class: 'btn' %></td>
+		</div>
+	</td>
+</tr>

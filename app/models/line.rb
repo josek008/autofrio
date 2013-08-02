@@ -14,11 +14,11 @@
 #
 
 class Line < ActiveRecord::Base
-	attr_accessible :name
+	attr_accessible :name, :photo, :brand_id
 
 	belongs_to :brand
 	has_and_belongs_to_many :products
-	has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+	has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "missing_:style.png"
 
 	validates :name, presence: true
 	validates_attachment_size :photo, :less_than => 5.megabytes

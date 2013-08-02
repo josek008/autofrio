@@ -1,23 +1,22 @@
-<% provide(:title, 'Marcas') %>
-<h1>Marcas</h1>
+<% provide(:title, 'Categorias') %>
+<h1>Categorias</h1>
 <table class="table table-hover table-condensed">
 	<thead>
 		<th>Nombre</th>
 		<th>Logo</th>
 		<th># de Productos</th>
-		<th># de Lineas</th>
 		<th>Acciones</th>
 	</thead>
 	<tbody>
-		<% if @brands.any? %>
-		<%= render @brands %>
+		<% if @categories.any? %>
+		<%= render @categories %>
 		<% else %>
-		<caption>No existen marcas creadas.</caption>
+		<caption>No existen categorias creadas.</caption>
 		<% end %>
 	</tbody>
 </table>
 
 <ul class="nav nav-pills">
-	<li><%= link_to 'Crear nueva marca', new_brand_path %></li>
+	<li><%= link_to 'Crear nueva categoria', new_category_path %></li>
 </ul>
 

@@ -1,0 +1,24 @@
+<% provide(:title, "Ver Producto - #{@product.category.name} - #{@product.reference}") %>
+<h1><%= "Ver Producto: #{@product.category.name} - #{@product.reference}" %></h1>
+<%= image_tag @product.photo.url(:medium) %>
+<ul>
+	<li><strong>Referencia: </strong><%= @product.reference %></li>
+	<li><strong>Categoria: </strong><%= @product.category.name %></li>
+	<li><strong>Comentario: </strong><%= @product.comments %></li>
+</ul>
+
+<legend><strong>Este producto es compatible con las siguientes lineas y marcas</strong></legend>
+
+<table>
+	<tr>
+		<% @lines.each do |l| %>
+		<td>
+			<ul>
+				<%= image_tag l.photo.url(:thumb) %>
+				<li><%= l.name %></li>
+				<li><%= l.brand.name %></li>
+			</ul>
+		</td>
+		<% end %>
+	</tr>
+</table>
