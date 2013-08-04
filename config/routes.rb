@@ -10,7 +10,7 @@ Autofrio::Application.routes.draw do
   resources :sessions,  only: [:new, :create, :destroy] 
 
   match '/empresa',    to: 'static_pages#empresa'
-  match '/catalogo',    to: 'static_pages#catalogo'
+  match '/catalogo',    to: 'products#index'
   match '/contacto',   to: 'static_pages#contacto'
   match '/admin',    to: 'static_pages#admin'
 

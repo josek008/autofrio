@@ -1,9 +1,9 @@
 class ProductsController < ApplicationController
-	#before_filter :signed_in_user, only: [:new, :create, :edit, :update, :destroy]
+	before_filter :signed_in_user, only: [:new, :create, :edit, :update, :destroy]
 
 	def new
 		@product = Product.new
-		@lines = Line.all
+		@lines = Line.ordered_by_brand.all
 		@categories = Category.all
 	end
 
@@ -20,7 +20,7 @@ class ProductsController < ApplicationController
 
 	def edit
 		@product = Product.find(params[:id])
-		@lines = Line.all
+		@lines = Line.ordered_by_brand.all
 		@categories = Category.all
 	end
 
@@ -41,7 +41,39 @@ class ProductsController < ApplicationController
 	end
 
 	def index
-		@products = Product.all
+		@categories = Category.all
+		@brands = Brand.all
+
+		if params[:filter]
+			if Category.exists?(params[:filter][:category])
+				@selected_category = Category.find(params[:filter][:category])
+			else
+				@selected_category = Category.new
+			end
+
+			if Brand.exists?(params[:filter][:brand])
+				@selected_brand = Brand.find(params[:filter][:brand])
+				@lines = @selected_brand.lines.all
+			else
+				@selected_brand = Brand.new
+				@lines = []
+			end
+
+			if Line.exists?(params[:filter][:line])
+				@selected_line = Line.find(params[:filter][:line])
+			else
+				@selected_line = Line.new
+			end
+
+			@products = Product.by_category(@selected_category.id).by_brand(@selected_brand.id).by_line(@selected_line.id)
+
+		else
+			@products = Product.all
+			@selected_category = Category.new
+			@selected_brand = Brand.new
+			@selected_line = Line.new
+			@lines = []
+		end
 	end
 
 	def show

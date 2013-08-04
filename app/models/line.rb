@@ -14,14 +14,20 @@
 #
 
 class Line < ActiveRecord::Base
-	attr_accessible :name, :photo, :brand_id
+	attr_accessible :name, :photo, :brand_id 
 
 	belongs_to :brand
 	has_and_belongs_to_many :products
 	has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "missing_:style.png"
 
+	scope :ordered_by_brand, joins(:brand).order("brands.name ASC")
+
 	validates :name, presence: true
 	validates_attachment_size :photo, :less_than => 5.megabytes
 	validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
+
+	def line_with_brand
+		"#{self.brand.name} - #{self.name}"
+	end
 
 end
