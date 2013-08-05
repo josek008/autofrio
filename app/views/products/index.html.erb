@@ -1,86 +1,86 @@
 <% provide(:title, 'Productos') %>
 <h1>Productos</h1>
+
+<h2>Filtros</h2>
 <ul>
-	<h2>Filtros</h2>
+	<li><strong>Categoria: </strong><%= "#{@selected_category.name}" unless @selected_category.nil? %></li> 
+	<li><strong>Marca: </strong><%= "#{@selected_brand.name}" unless @selected_brand.nil? %></li>
+	<li><strong>Linea: </strong><%= "#{@selected_line.name}" unless @selected_line.nil? %></li>
+</ul>
+<%= form_tag products_path, id: "filter_form" , method: "get" do |f| %>
+<%= hidden_field :filter, :category, :value => "#{@selected_category.id}" %>
+<%= hidden_field :filter, :brand, :value => "#{@selected_brand.id}" %>
+<%= hidden_field :filter, :line, :value => "#{@selected_line.id}" %>
+<% end %>
+
+<div>
 	<ul>
-		<li><strong>Categoria: </strong><%= "#{@selected_category.name}" unless @selected_category.nil? %></li> 
-		<li><strong>Marca: </strong><%= "#{@selected_brand.name}" unless @selected_brand.nil? %></li>
-		<li><strong>Linea: </strong><%= "#{@selected_line.name}" unless @selected_line.nil? %></li>
+		<h3>Categorias</h3>
+		<% @categories.each do |c| %>
+		<li><%= link_to_function "#{c.name}", "setCategory(#{c.id})" %></li>
+		<% end %>
+		<li><%= link_to_function "Todos", "setCategory('')" %></li>
 	</ul>
-	<%= form_tag products_path, id: "filter_form" , method: "get" do |f| %>
-	<%= hidden_field :filter, :category, :value => "#{@selected_category.id}" %>
-	<%= hidden_field :filter, :brand, :value => "#{@selected_brand.id}" %>
-	<%= hidden_field :filter, :line, :value => "#{@selected_line.id}" %>
-	<% end %>
-	
-	<div>
-		<ul>
-			<h3>Categorias</h3>
-			<% @categories.each do |c| %>
-			<li><%= link_to_function "#{c.name}", "setCategory(#{c.id})" %></li>
-			<% end %>
-			<li><%= link_to_function "Todos", "setCategory('')" %></li>
-		</ul>
-	</div>
+</div>
 
-	<% if @lines.empty? %>
-	<div>
-		<ul>
-			<h3>Marcas</h3>
-			<% @brands.each do |b| %>
-			<li><%= link_to_function "#{b.name}", "setBrand(#{b.id})" %></li>
-			<% end %>
-			<li><%= link_to_function "Todas", "setBrand('')" %></li>
-		</ul>
-	</div>
-	<% else %>
-	<div>
-		<ul>
-			<h3><%= "#{@selected_brand.name}" %></h3>
-			<% @lines.each do |l| %>
-			<li><%= link_to_function "#{l.name}", "setLine(#{l.id})" %></li>
-			<% end %>
-			<li><%= link_to_function "Todas", "setLine('')" %></li>
-			<li><%= link_to_function "Regresar...", "setBrand('')" %></li>
-		</ul>
-	</div>
-	<% end %>
-	
-	<script type="text/javascript">
-	function setCategory(c) {
-		document.getElementById("filter_category").value = c;
-		document.getElementById("filter_form").submit();
-	}
-	function setBrand(b) {
-		document.getElementById("filter_brand").value = b;
-		document.getElementById("filter_form").submit();
-	}
-	function setLine(c) {
-		document.getElementById("filter_line").value = c;
-		document.getElementById("filter_form").submit();
-	}
-	</script>
-	
-	<h4><%= "Productos en esta busqueda: #{@products.count}" %></h4>
-	<table class="table table-hover table-condensed" id="products-table">
-		<thead>
-			<th>Referencia</th>
-			<th>Comentarios</th>
-			<th>Categoria</th>
-			<th>Imagen</th>
-			<th>Lineas Compatibles</th>
-			<th>Acciones</th>
-		</thead>
-		<tbody>
-			<% if @products.any? %>
-			<%= render @products %>
-			<% else %>
-			<caption>No existen productos en esta vista.</caption>
-			<% end %>
-		</tbody>
-	</table>
-
-	<ul class="nav nav-pills">
-		<li><%= link_to 'Crear nuevo producto', new_product_path %></li>
+<% if @lines.empty? %>
+<div>
+	<ul>
+		<h3>Marcas</h3>
+		<% @brands.each do |b| %>
+		<li><%= link_to_function "#{b.name}", "setBrand(#{b.id})" %></li>
+		<% end %>
+		<li><%= link_to_function "Todas", "setBrand('')" %></li>
 	</ul>
+</div>
+<% else %>
+<div>
+	<ul>
+		<h3><%= "#{@selected_brand.name}" %></h3>
+		<% @lines.each do |l| %>
+		<li><%= link_to_function "#{l.name}", "setLine(#{l.id})" %></li>
+		<% end %>
+		<li><%= link_to_function "Todas", "setLine('')" %></li>
+		<li><%= link_to_function "Regresar...", "setBrand('')" %></li>
+	</ul>
+</div>
+<% end %>
+
+<script type="text/javascript">
+function setCategory(c) {
+	document.getElementById("filter_category").value = c;
+	document.getElementById("filter_form").submit();
+}
+function setBrand(b) {
+	document.getElementById("filter_brand").value = b;
+	document.getElementById("filter_form").submit();
+}
+function setLine(c) {
+	document.getElementById("filter_line").value = c;
+	document.getElementById("filter_form").submit();
+}
+</script>
+
+<h4><%= "Productos en esta busqueda: #{@products.count}" %></h4>
+<table class="table table-hover table-condensed" id="products-table">
+	<thead>
+		<th>Referencia</th>
+		<th>Comentarios</th>
+		<th>Categoria</th>
+		<th>Imagen</th>
+		<th>Lineas Compatibles</th>
+		<th>Acciones</th>
+	</thead>
+	<tbody>
+		<% if @products.any? %>
+		<%= render @products %>
+		<% else %>
+		<caption>No existen productos en esta vista.</caption>
+		<% end %>
+	</tbody>
+</table>
+
+<ul class="nav nav-pills">
+	<li><%= link_to 'Crear nuevo producto', new_product_path %></li>
+</ul>
 
