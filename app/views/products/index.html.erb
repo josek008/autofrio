@@ -8,20 +8,28 @@
 <% end %>
 <div class="row">
 	<div class="span3">
+		<% unless @selected_category.name.blank? and @selected_brand.name.blank? and @selected_line.name.blank? %>
 		<h2>Filtros</h2>
 		<ul>
-			<li><strong>Categoria: </strong><%= "#{@selected_category.name}" unless @selected_category.nil? %></li> 
-			<li><strong>Marca: </strong><%= "#{@selected_brand.name}" unless @selected_brand.nil? %></li>
-			<li><strong>Linea: </strong><%= "#{@selected_line.name}" unless @selected_line.nil? %></li>
+			<% unless @selected_category.name.blank? %>
+			<li><strong>Categoria: </strong><%= "#{@selected_category.name}" %></li> 
+			<% end %>
+			<% unless @selected_brand.name.blank? %>
+			<li><strong>Marca: </strong><%= "#{@selected_brand.name}" %></li> 
+			<% end %>
+			<% unless @selected_line.name.blank? %>
+			<li><strong>Linea: </strong><%= "#{@selected_line.name}" %></li> 
+			<% end %>
 		</ul>
+		<% end %>
 
 		<div>
 			<ul>
 				<h3>Categorias</h3>
 				<% @categories.each do |c| %>
-				<li><%= link_to_function "#{c.name}", "setCategory(#{c.id})" %></li>
+				<li><%= link_to "#{c.name}", "#", data: { category: c.id } %></li>
 				<% end %>
-				<li><%= link_to_function "Todos", "setCategory('')" %></li>
+				<li><%= link_to "Todos", "#", data: { category: "" } %></li>
 			</ul>
 		</div>
 
@@ -30,9 +38,9 @@
 			<ul>
 				<h3>Marcas</h3>
 				<% @brands.each do |b| %>
-				<li><%= link_to_function "#{b.name}", "setBrand(#{b.id})" %></li>
+				<li><%= link_to "#{b.name}", "#", data: { brand: b.id } %></li>
 				<% end %>
-				<li><%= link_to_function "Todas", "setBrand('')" %></li>
+				<li><%= link_to "Todas", "#", data: { brand: "" }%></li>
 			</ul>
 		</div>
 		<% else %>
@@ -40,28 +48,13 @@
 			<ul>
 				<h3><%= "#{@selected_brand.name}" %></h3>
 				<% @lines.each do |l| %>
-				<li><%= link_to_function "#{l.name}", "setLine(#{l.id})" %></li>
+				<li><%= link_to "#{l.name}", "#", data: { line: l.id } %></li>
 				<% end %>
-				<li><%= link_to_function "Todas", "setLine('')" %></li>
-				<li><%= link_to_function "Regresar...", "setBrand('')" %></li>
+				<li><%= link_to "Todas", "#", data: { line: "" } %></li>
+				<li><%= link_to "Regresar...", "#", data: { brand: "" } %></li>
 			</ul>
 		</div>
 		<% end %>
-
-		<script type="text/javascript">
-			function setCategory(c) {
-				document.getElementById("filter_category").value = c;
-				document.getElementById("filter_form").submit();
-			}
-			function setBrand(b) {
-				document.getElementById("filter_brand").value = b;
-				document.getElementById("filter_form").submit();
-			}
-			function setLine(c) {
-				document.getElementById("filter_line").value = c;
-				document.getElementById("filter_form").submit();
-			}
-		</script>
 	</div>
 	<div class="span9">
 		<h4><%= "Productos en esta busqueda: #{@products.count}" %></h4>

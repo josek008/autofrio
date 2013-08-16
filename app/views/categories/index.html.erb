@@ -8,11 +8,7 @@
 		<th>Acciones</th>
 	</thead>
 	<tbody>
-		<% if @categories.any? %>
 		<%= render @categories %>
-		<% else %>
-		<caption>No existen categorias creadas.</caption>
-		<% end %>
 	</tbody>
 </table>
 

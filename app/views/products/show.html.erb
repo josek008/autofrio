@@ -1,24 +1,28 @@
-<% provide(:title, "Ver Producto - #{@product.category.name} - #{@product.reference}") %>
-<h1><%= "Ver Producto: #{@product.category.name} - #{@product.reference}" %></h1>
-<%= image_tag @product.photo.url(:medium) %>
-<ul>
-	<li><strong>Referencia: </strong><%= @product.reference %></li>
-	<li><strong>Categoria: </strong><%= @product.category.name %></li>
-	<li><strong>Comentario: </strong><%= @product.comments %></li>
-</ul>
-
+<% provide(:title, "#{@product.category.name} - #{@product.reference}") %>
+<h3><%= "#{@product.category.name} - #{@product.reference}" %></h3>
+<div class="row">
+	<div class="span3">
+		<%= image_tag @product.photo.url(:medium), class: "img-polaroid" %>
+	</div>
+	<div class="span9">
+		<ul>
+			<li><strong>Referencia: </strong><%= @product.reference %></li>
+			<li><strong>Categoria: </strong><%= @product.category.name %></li>
+			<li><strong>Comentario: </strong><%= @product.comments %></li>
+		</ul>
+	</div>
+</div>
 <legend><strong>Este producto es compatible con las siguientes lineas y marcas</strong></legend>
 
-<table>
-	<tr>
-		<% @lines.each do |l| %>
-		<td>
-			<ul>
-				<%= image_tag l.photo.url(:thumb) %>
-				<li><%= l.name %></li>
-				<li><%= l.brand.name %></li>
-			</ul>
-		</td>
-		<% end %>
-	</tr>
-</table>
+<div class="row">
+
+	<% @lines.each do |l| %>
+	<div class="lines-compatible">
+		<div class="internal">
+			<%= image_tag l.photo.url(:thumb), class: "img-circle" %>
+			<h4><%= l.name %></h4>
+			<h5><%= l.brand.name %></h5>
+		</div>
+	</div>
+	<% end %>
+</div>

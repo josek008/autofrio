@@ -1,0 +1,16 @@
+<% provide(:title, 'Catálogo / Categorias') %>
+
+<h1>Catálogo</h1>
+<legend>Selecciona una categoría</legend>
+
+<div class="row">
+	<%= render :partial => 'category', :collection => @categories %>
+	<div class="catalogue-option">
+	<div class="internal">
+		<%= link_to cbrand_url(category_id: "all") do %>
+			<%= image_tag "missing_catalogue.png" %>
+			<h5><span>Todas</span></h5>
+		<% end %>
+	</div>
+</div>
+</div>

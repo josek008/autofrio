@@ -45,3 +45,23 @@
 		}
 	}
 }
+
+.lines-compatible {
+	width: 10%;
+	float: left;
+	text-align: center;
+
+	.internal {
+		margin: 10px;
+		position: relative;
+
+		h4, h5 {
+			line-height: 1.4em;
+			z-index: 10;
+			bottom: 5px;
+			left: 0px;
+			width: 100%;
+			margin-bottom: 0px;
+		}
+	}
+}
