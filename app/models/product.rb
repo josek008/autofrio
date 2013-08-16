@@ -17,7 +17,7 @@
 class Product < ActiveRecord::Base
 	attr_accessible :category_id, :comments, :reference, :photo, :line_ids
 
-	has_and_belongs_to_many :lines, dependent: :destroy
+	has_and_belongs_to_many :lines
 	has_many :brands, through: :lines
 	belongs_to :category
 	has_attached_file :photo, :styles => { :medium => "300x300>", :catalogue => "200x200>", :thumb => "100x100>" }, :default_url => "missing_:style.png"

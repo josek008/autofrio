@@ -17,7 +17,7 @@ class Line < ActiveRecord::Base
 	attr_accessible :name, :photo, :brand_id 
 
 	belongs_to :brand
-	has_and_belongs_to_many :products, dependent: :destroy
+	has_and_belongs_to_many :products
 	has_attached_file :photo, :styles => { :medium => "300x300>", :catalogue => "200x200>", :thumb => "100x100>" }, :default_url => "missing_:style.png"
 
 	scope :ordered_by_brand, joins(:brand).order("brands.name ASC")
