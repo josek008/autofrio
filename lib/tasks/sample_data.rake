@@ -9,6 +9,13 @@ namespace :db do
 	end
 end
 
+namespace :db do
+	desc "Llena la base de datos con admin user"
+	task populate: :environment do
+		create_admin_user
+	end
+end
+
 def create_admin_user
 	admin = User.create!(name: "Eduard L.", 
 		email: "autofrioimportaciones@hotmail.com",

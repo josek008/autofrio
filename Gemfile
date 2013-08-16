@@ -31,7 +31,7 @@ end
 
 gem 'jquery-rails', '2.0.2'
 gem 'jquery-ui-rails'
-gem 'jquery-datatables-rails', git: 'https://github.com/rweng/jquery-datatables-rails.git'
+gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
 
 group :test do
   gem 'capybara', '1.1.2'
