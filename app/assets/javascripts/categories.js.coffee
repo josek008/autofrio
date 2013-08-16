@@ -22,4 +22,5 @@ jQuery ->
 				sLast: "Último"
 
 		bPaginate: true,
-		sPaginationType: "bootstrap"
+		sPaginationType: "bootstrap",
+		iDisplayLength: 100

@@ -4,6 +4,7 @@
 
 jQuery ->
 	$('#products-table').dataTable
+		aaSorting: [ [2,'asc'], [1,'asc'], [0,'asc'] ]
 		oLanguage:
 			sProcessing: "Procesando..."
 			sLengthMenu: "Mostrar _MENU_ registros"
@@ -22,4 +23,5 @@ jQuery ->
 				sLast: "Último"
 
 		bPaginate: true,
-		sPaginationType: "bootstrap"
+		sPaginationType: "bootstrap",
+		iDisplayLength: 100

@@ -1,0 +1,7 @@
+<% provide(:title, 'Catálogo') %>
+<h1>Catálogo</h1>
+<legend>Selecciona una categoría</legend>
+
+<div class="row">
+	<%= render :partial => 'category', :collection => @categories %>
+</div>

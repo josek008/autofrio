@@ -7,7 +7,7 @@
 			<ul class="nav nav-pills pull-right navlinks">
 				<li><%= link_to "Inicio", root_path %></li>
 				<li><%= link_to "Empresa", empresa_path %></li>
-				<li><%= link_to "Catalogo", catalogo_path %></li>
+				<li><%= link_to "Catálogo", catalogo_path %></li>
 				<li><%= link_to "Contacto", contacto_path %></li>
 				<% if signed_in? %>
 				<li id="fat-menu" class="dropdown">
@@ -19,8 +19,6 @@
 						<li><%= link_to "Salir", signout_path, method: "delete" %></li>
 					</ul>
 				</li>
-				<% else %>
-				<li><%= link_to "Admin", signin_path %></li>
 				<% end %>
 			</ul>
 		</div>
