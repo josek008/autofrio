@@ -68,7 +68,9 @@
 				<th>Acciones</th>
 			</thead>
 			<tbody>
+				<% if @products.any? %>
 				<%= render @products %>
+				<% end %>
 			</tbody>
 		</table>
 

@@ -9,7 +9,9 @@
 		<th>Acciones</th>
 	</thead>
 	<tbody>
+		<% if @lines.any? %>
 		<%= render @lines %>
+		<% end %>
 	</tbody>
 </table>
 
