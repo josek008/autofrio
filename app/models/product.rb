@@ -29,6 +29,7 @@ class Product < ActiveRecord::Base
 	scope :by_line, lambda{|line_id| where(:lines => {:id => line_id } ) unless line_id.nil?}
 
 	validates :category_id, presence: true
+	validates :lines_ids, presence: true
 	validates :comments, length: { maximum: 200 }
 	validates :reference, length: { maximum: 100 }
 	validates_attachment_size :photo, :less_than => 5.megabytes

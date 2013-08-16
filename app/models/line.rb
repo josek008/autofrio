@@ -23,6 +23,7 @@ class Line < ActiveRecord::Base
 	scope :ordered_by_brand, joins(:brand).order("brands.name ASC")
 
 	validates :name, presence: true
+	validates :brand_id, presence: true
 	validates_attachment_size :photo, :less_than => 5.megabytes
 	validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
 
