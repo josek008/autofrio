@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
 	end
 
 	def create
-		@category = Brand.new(params[:category])
+		@category = Category.new(params[:category])
 
 		if @category.save
 			flash[:success] = "Categoria creada satisfactoriamente!"

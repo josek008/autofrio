@@ -1,1 +1,47 @@
 @import "bootstrap";
+
+.catalogue-option {
+	width: 20%;
+	float: left;
+
+	.internal {
+		margin: 10px;
+		position: relative;
+		img {
+			border-radius: 10px;
+		}
+
+		a {
+			display: block;
+			&:hover {
+				text-decoration: none;
+				filter: alpha(opacity=50);
+				opacity: 0.5;
+				zoom: 1;
+			}
+		}
+
+		h5 {
+			line-height: 1.4em;
+			position: absolute;
+			z-index: 10;
+			bottom: 10px;
+			left: 0px;
+			width: 100%;
+			margin-bottom: 0px;
+
+			span {
+				padding: 10px;
+				display: block;
+				border-radius: 10px;
+				color: #FFFFFF;
+				background: #333366;
+				filter: alpha(opacity=80);
+				opacity: 0.8;
+				zoom: 1;
+				margin-right: 10px;
+				margin-left: 10px;
+			}
+		}
+	}
+}

@@ -17,7 +17,7 @@ class Brand < ActiveRecord::Base
 
 	has_many :lines
 	has_many :products, through: :lines
-	has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "missing_:style.png"
+	has_attached_file :photo, :styles => { :medium => "300x300>", :catalogue => "200x200>", :thumb => "100x100>" }, :default_url => "missing_:style.png"
 
 	validates :name, presence: true, uniqueness: true
 	validates_attachment_size :photo, :less_than => 5.megabytes

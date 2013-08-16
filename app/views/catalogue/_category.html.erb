@@ -1,6 +1,8 @@
 <div class="catalogue-option">
-<a href="#">
-	<div class="img"><%= image_tag category.photo.url(:thumb), class: "img-circle" %></div>
-	<div class="name"><%= category.name %></div>
-	</a>
+	<div class="internal">
+		<a href="#">
+			<%= image_tag category.photo.url(:catalogue) %>
+			<h5><span><%= category.name %></span></h5>
+		</a>
+	</div>
 </div>
