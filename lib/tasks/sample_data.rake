@@ -11,7 +11,7 @@ end
 
 namespace :db do
 	desc "Llena la base de datos con admin user"
-	task populate: :environment do
+	task populate_admin: :environment do
 		create_admin_user
 	end
 end
