@@ -37,7 +37,7 @@ class ProductsController < ApplicationController
 	def destroy
 		Product.find(params[:id]).destroy
 		flash[:success] = "Producto eliminado."
-		redirect_to product_url
+		redirect_to products_url
 	end
 
 	def index

@@ -8,6 +8,7 @@ gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem "state_machine", "~> 1.2.0"
 gem "paperclip", "~> 3.0"
+gem 'aws-sdk'
 
 group :development, :test do
   gem 'rspec-rails', '2.11.0'
