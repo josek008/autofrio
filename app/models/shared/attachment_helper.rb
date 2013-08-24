@@ -20,7 +20,7 @@ module Shared
         if Rails.env.production?
           options[:path]            ||= attachment_path
           options[:storage]         ||= :s3
-          options[:url]             ||= ':s3_authenticated_url'
+          options[:url]             ||= ':s3_path_url'
           options[:s3_credentials]  ||= File.join(Rails.root, 'config', 'aws.yml')
           options[:s3_permissions]  ||= 'private'
           options[:s3_protocol]     ||= 'https'
