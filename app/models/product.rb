@@ -17,16 +17,16 @@
 class Product < ActiveRecord::Base
 	attr_accessible :category_id, :comments, :reference, :photo, :line_ids
 
-	has_and_belongs_to_many :lines
-	has_many :brands, through: :lines
-	belongs_to :category
-	has_attached_file :photo, :styles => { :medium => "300x300>", :catalogue => "200x200>", :thumb => "100x100>" }, :default_url => "missing_:style.png"
-
 	scope :by_category, lambda{|category_id| where(:category_id => category_id) unless category_id.nil?}
 	scope :by_brand, lambda{|brand_id| select("DISTINCT(products.id), products.*").
 		joins(:brands).
 		where(:brands => {:id => brand_id}) unless brand_id.nil?}
 	scope :by_line, lambda{|line_id| where(:lines => {:id => line_id } ) unless line_id.nil?}
+
+	has_and_belongs_to_many :lines
+	has_many :brands, through: :lines
+	belongs_to :category
+	has_attached_file :photo, :styles => { :medium => "300x300>", :catalogue => "200x200>", :thumb => "100x100>" }, :default_url => "missing_:style.png"
 
 	validates :category_id, presence: true
 	validates :line_ids, presence: true

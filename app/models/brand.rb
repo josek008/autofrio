@@ -15,6 +15,8 @@
 class Brand < ActiveRecord::Base
 	attr_accessible :name, :photo
 
+	default_scope order('name ASC')
+
 	has_many :lines, dependent: :destroy
 	has_many :products, through: :lines, dependent: :destroy
 	has_attached_file :photo, :styles => { :medium => "300x300>", :catalogue => "200x200>", :thumb => "100x100>" }, :default_url => "missing_:style.png"

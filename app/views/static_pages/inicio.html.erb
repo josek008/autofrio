@@ -1,2 +1,44 @@
-<h1>StaticPages#inicio</h1>
-<p>Find me in app/views/static_pages/inicio.html.erb</p>
+<% provide(:title, '¡Bienvenido a Autofrío Importaciones SAS!') %>
+<h1 class="center">Somos su mejor decisión en el mercado de autopartes</h1>
+<p class="center muted">Estas son unas de las razones...</p>
+<br>
+<div id="features">
+	<div class="row">
+		<div class="span4">
+			<%= image_tag "gama.png" %>
+			<p>¡Contamos con el más amplio catálogo del mercado!</p>
+		</div>
+		<div class="span4">
+			<%= image_tag "quality.png" %>
+			<p>Somos sinónimo de Calidad y Eficiencia</p>
+		</div>
+		<div class="span4">
+			<%= image_tag "people.png" %>
+			<p>Nuestro personal es altamente calificado</p>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="span4">
+			<%= image_tag "cargo.png" %>
+			<p>Somos importadores directos</p>
+		</div>
+		<div class="span4">
+			<%= image_tag "fast.png" %>
+			<p>¡Servicio a Domicilio Rápido y Eficaz!</p>
+		</div>
+		<div class="span4">
+			<%= image_tag "tech.png" %>
+			<p>Trabajamos con tecnologia de punta</p>
+		</div>
+	</div>
+</div>
+<br>
+<hr>
+<br>
+<div class="center row">
+	<%= image_tag "distribuidor.png" %>
+	<br>
+	<h4 class="muted">Únicos Distribuidores Autorizados</h4>
+	<p>Somos los únicos distribuidores autorizados en el país de las grandes marcas de autopartes: Denso, Actecmax y Sanden.</p>
+</div>

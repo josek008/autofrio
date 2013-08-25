@@ -1,12 +1,26 @@
-<footer class="footer">
-  <small>
-    <a href="http://autofrio.heroku.co/">Autofrio Importaciones SAS</a>
-    <br><i>Calidad y Eficiencia!</i>
-  </small>
-  <nav>
-    <ul>
-      <li><%= link_to "Empresa", empresa_path %></li>
-      <li><%= link_to "Contacto", contacto_path %></li>
-    </ul>
-  </nav>
-</footer>
+<div class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="footer-links">
+        <%= link_to "Inicio", root_path %></li> | 
+        <%= link_to "Empresa", empresa_path %></li> |  
+        <%= link_to "Catálogo", catalogo_path %></li> |
+        <%= link_to "Contacto", contacto_path %></li>
+      </div>
+      <br>
+      <div class="footer-info">
+        <%= image_tag "logo_small.png" %>
+        <p>
+          <strong>Autofrio Importaciones SAS</strong>
+          <br>Carrera 41 # 57 - 48
+          <br>Barrranquilla, Colombia
+          <br>
+          <a href="mailto:autofrioimportaciones@hotmail.com">autofrioimportaciones@hotmail.com</a> 
+          <br><i>¡Calidad y Eficiencia!</i>
+          <br><span id="copyright">© 2013 Autofrio Importaciones, SAS.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

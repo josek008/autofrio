@@ -1,4 +1,130 @@
 @import "bootstrap";
+@import url(http://fonts.googleapis.com/css?family=Oxygen|Oswald);
+
+body {
+	font-family: 'Oxygen', sans-serif;
+	background: #59646e;
+}
+
+.center {
+	text-align: center;
+}
+
+.header {
+	z-index: 20000;
+	font-family: 'Oswald', sans-serif;
+	font-size: 18px;
+	text-shadow: 0px 1px 1px #2b3236;
+	height: 80px;
+	background: #1f282d;
+
+	#logo {
+		display: inline-block;
+		margin-top: 10px;
+	}
+
+	.nav {
+		float: right;
+		margin-top: 18px;
+		
+		a {
+			color: white;
+			display: block;
+			&:hover {
+				text-shadow: 0px 0px 0px;
+				color: #1f282d;
+			}
+		}
+	}
+}
+
+#content-area {
+	background: #fff;
+	padding-bottom: 60px;
+	z-index: 1;
+}
+
+
+.content {
+	margin-top: 20px;
+	.info-about {
+		p {
+			font-size: 14px;
+			line-height: 22px;
+		}
+	}
+}
+
+#features {
+	text-align: center;
+	line-height: 25px;
+	font-family: 'Oswald', sans-serif;
+	.span4 {
+		padding-top: 20px;
+		padding-bottom: 10px;
+		border-radius: 6px;
+		background: #f9f9f9;
+	}
+}
+
+.catalog-box {
+	box-shadow: 0px 2px 0px rgba(0,0,0,0.05),0px 4px 15px rgba(0,0,0,0.1);
+	border-radius: 6px;
+	padding: 10px 10px;
+}
+
+#breadcrumb {
+	margin-bottom: 0;
+	height: 80px;
+	background: #3f6d98;
+	z-index: 1000px;
+	overflow: hidden;
+	h1 {
+		margin-top: 20px;
+		margin-bottom: 10px;
+		color: #fff;
+		text-align: left;
+		text-shadow: 0px 2px 0px rgba(0,0,0,0.2);
+		font-size: 40px;
+	}
+}
+
+.footer {
+	background: url('bg.jpg') repeat;
+	box-shadow: 0px 4px 8px rgba(50,50,50,0.3) inset;
+	padding: 30px 0;
+	color: #a4bac9;
+	text-align: center;
+	text-shadow: 0px 1px 1px #2b3236;
+
+	a {
+		color: #a4bac9;
+		&:hover {
+			color: #fff;
+			text-decoration: none;
+		}
+	}
+	
+	p {
+		font-size: 12px;
+		line-height: 15px;
+		margin-top: 0px;
+		color: #fff;
+
+		a {
+			color: #fff;
+			border-bottom: 1px dotted #fff;
+			font-weight: bold;
+			line-height: 26px;
+		}
+	}
+
+	#copyright {
+		font-size: 10px;
+		margin-top: 20px;
+		display: inline-block;
+	}
+}
 
 .catalogue-option {
 	width: 20%;
@@ -23,24 +149,21 @@
 
 		h5 {
 			line-height: 1.4em;
-			position: absolute;
 			z-index: 10;
 			bottom: 10px;
 			left: 0px;
 			width: 100%;
 			margin-bottom: 0px;
+			text-align: center;
 
 			span {
 				padding: 10px;
 				display: block;
 				border-radius: 10px;
-				color: #FFFFFF;
-				background: #333366;
-				filter: alpha(opacity=80);
-				opacity: 0.8;
-				zoom: 1;
-				margin-right: 10px;
-				margin-left: 10px;
+				color: white;
+				background: #3f6d98;
+				margin-right: 5px;
+				margin-left: 5px;
 			}
 		}
 	}
@@ -65,3 +188,4 @@
 		}
 	}
 }
+
