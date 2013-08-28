@@ -16,7 +16,7 @@
 class Line < ActiveRecord::Base
 	attr_accessible :name, :photo, :brand_id 
 
-	default_scope order('name ASC')
+	scope :ordered_by_name, order("name ASC")
 	scope :ordered_by_brand, joins(:brand).order("brands.name ASC")
 
 	belongs_to :brand

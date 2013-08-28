@@ -4,7 +4,7 @@
 
 jQuery ->
 	$('#lines-table').dataTable
-	aaSorting: [[2,'asc'], [0,'asc'], [3,'asc']]
+		aaSorting: [[2,'asc'], [0,'asc'], [3,'asc']]
 		oLanguage:
 			sProcessing: "Procesando..."
 			sLengthMenu: "Mostrar _MENU_ registros"
