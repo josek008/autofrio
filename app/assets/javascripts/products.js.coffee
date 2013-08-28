@@ -22,7 +22,7 @@ $ ->
 
 jQuery ->
 	$('#products-table').dataTable
-		aaSorting: [[4,'asc'], [1,'asc'], [2,'asc'], [0,'asc']]
+		aaSorting: [[0,'asc'], [1,'asc'], [2,'asc'], [3,'asc']]
 		oLanguage:
 			sProcessing: "Procesando..."
 			sLengthMenu: "Mostrar _MENU_ registros"

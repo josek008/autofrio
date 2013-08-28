@@ -1,9 +1,10 @@
 <tr>
-	<td><%= wrap(product.reference) %></td>
+	<td><%= format_lines(product) %></td>
 	<td><%= wrap(product.comments) %></td>
 	<td><%= product.category.name %></td>
+	<td><%= wrap(product.reference) %></td>
 	<td><%= image_tag product.photo.url(:thumb) %></td>
-	<td><%= format_lines(product) %></td>
+	
 	<td>
 		<div class="btn-group">
 			<%= link_to 'Ver', product, class: 'btn' %>
