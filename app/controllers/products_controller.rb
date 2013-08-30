@@ -42,38 +42,13 @@ class ProductsController < ApplicationController
 
 	def index
 		@categories = Category.all
-		@brands = Brand.all
 
-		if params[:filter]
-			if Category.exists?(params[:filter][:category])
-				@selected_category = Category.find(params[:filter][:category])
-			else
-				@selected_category = Category.new
-			end
+		@selected_category = Category.find(params[:category][:id])
+		@selected_brand = Brand.find(params[:brand][:id])
+		@selected_line = Line.find(params[:line][:id])
+		
+		@products = Product.by_category(@selected_category.id).by_brand(@selected_brand.id).by_line(@selected_line.id)
 
-			if Brand.exists?(params[:filter][:brand])
-				@selected_brand = Brand.find(params[:filter][:brand])
-				@lines = @selected_brand.lines.all
-			else
-				@selected_brand = Brand.new
-				@lines = []
-			end
-
-			if Line.exists?(params[:filter][:line])
-				@selected_line = Line.find(params[:filter][:line])
-			else
-				@selected_line = Line.new
-			end
-
-			@products = Product.by_category(@selected_category.id).by_brand(@selected_brand.id).by_line(@selected_line.id)
-
-		else
-			@products = Product.all
-			@selected_category = Category.new
-			@selected_brand = Brand.new
-			@selected_line = Line.new
-			@lines = []
-		end
 	end
 
 	def show

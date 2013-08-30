@@ -1,16 +1,12 @@
 <% provide(:title, 'Catálogo') %>
 
+<%= form_tag cbrand_url, id: "filter_form", method: "get" do |f| %>
+<%= hidden_field :category, :id, :value => "" %>
+<% end %>
+
 <legend>Selecciona una categoría</legend>
 
 <div class="row">
 	<%= render :partial => 'category', :collection => @categories %>
-	<div class="catalogue-option">
-		<div class="internal">
-			<%= link_to cbrand_url(category_id: "all") do %>
-			<%= image_tag "missing_catalogue.png" %>
-			<h5><span>Todas</span></h5>
-			<% end %>
-		</div>
-	</div>
 </div>
 

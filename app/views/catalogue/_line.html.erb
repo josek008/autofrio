@@ -1,0 +1,8 @@
+<div class="catalogue-option">
+	<div class="internal">
+		<%= link_to "#", data: { line: line.id } do %>
+			<%= image_tag line.photo.url(:catalogue) %>
+			<h5><span><%= line.name %></span></h5>
+		<% end %>
+	</div>
+</div>

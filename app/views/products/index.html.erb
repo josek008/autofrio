@@ -1,61 +1,20 @@
 <% provide(:title, 'Productos') %>
 
-<%= form_tag products_path, id: "filter_form" , method: "get" do |f| %>
-<%= hidden_field :filter, :category, :value => "#{@selected_category.id}" %>
-<%= hidden_field :filter, :brand, :value => "#{@selected_brand.id}" %>
-<%= hidden_field :filter, :line, :value => "#{@selected_line.id}" %>
+<%= form_tag cbrand_url, id: "filter_form" , method: "get" do |f| %>
+<%= hidden_field :category, :id, :value => "#{@selected_category.id}" %>
+<%= hidden_field :brand, :id, :value => "#{@selected_brand.id}" %>
+<%= hidden_field :line, :id, :value => "#{@selected_line.id}" %>
 <% end %>
 <div class="row-fluid">
 	<div class="span3">
-		<% unless @selected_category.name.blank? and @selected_brand.name.blank? and @selected_line.name.blank? %>
-		<div class="catalog-box">
-			<ul>
-				<h3>Filtros</h3>
-				<% unless @selected_category.name.blank? %>
-				<li><strong>Categoria: </strong><%= "#{@selected_category.name}" %></li> 
-				<% end %>
-				<% unless @selected_brand.name.blank? %>
-				<li><strong>Marca: </strong><%= "#{@selected_brand.name}" %></li> 
-				<% end %>
-				<% unless @selected_line.name.blank? %>
-				<li><strong>Linea: </strong><%= "#{@selected_line.name}" %></li> 
-				<% end %>
-			</ul>
-		</div>
-		<% end %>
-
 		<div class="catalog-box">
 			<ul>
 				<h3>Categorias</h3>
 				<% @categories.each do |c| %>
 				<li><%= link_to "#{c.name}", "#", data: { category: c.id } %></li>
 				<% end %>
-				<li><%= link_to "Todos", "#", data: { category: "" } %></li>
 			</ul>
 		</div>
-
-		<% if @lines.empty? %>
-		<div class="catalog-box">
-			<ul>
-				<h3>Marcas</h3>
-				<% @brands.each do |b| %>
-				<li><%= link_to "#{b.name}", "#", data: { brand: b.id } %></li>
-				<% end %>
-				<li><%= link_to "Todas", "#", data: { brand: "" }%></li>
-			</ul>
-		</div>
-		<% else %>
-		<div class="catalog-box">
-			<ul>
-				<h3><%= "#{@selected_brand.name}" %></h3>
-				<% @lines.each do |l| %>
-				<li><%= link_to "#{l.name}", "#", data: { line: l.id } %></li>
-				<% end %>
-				<li><%= link_to "Todas", "#", data: { line: "" } %></li>
-				<li><%= link_to "Regresar...", "#", data: { brand: "" } %></li>
-			</ul>
-		</div>
-		<% end %>
 	</div>
 	<div class="catalog-box span9">
 		<h4><%= "Productos en esta busqueda: #{@products.count}" %></h4>

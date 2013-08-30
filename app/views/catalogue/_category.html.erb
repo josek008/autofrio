@@ -1,6 +1,6 @@
 <div class="catalogue-option">
 	<div class="internal">
-		<%= link_to cbrand_url(category_id: category.id) do %>
+		<%= link_to "#", data: { category: category.id } do %>
 			<%= image_tag category.photo.url(:catalogue) %>
 			<h5><span><%= category.name %></span></h5>
 		<% end %>

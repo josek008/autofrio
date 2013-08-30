@@ -1,20 +1,12 @@
 <% provide(:title, 'Catálogo') %>
 
-<%= form_tag products_path, id: "filter_form" , method: "get" do |f| %>
-<%= hidden_field :filter, :category, :value => "#{@selected_category.id}" %>
-<%= hidden_field :filter, :brand, :value => "#{@selected_brand.id}" %>
+<%= form_tag cline_path, id: "filter_form" do |f| %>
+<%= hidden_field :category, :id, :value => "#{@selected_category.id}" %>
+<%= hidden_field :brand, :id, :value => "#{@selected_brand.id}" %>
 <% end %>
 
 <legend>Selecciona una marca</legend>
 
 <div class="row">
 	<%= render :partial => 'brand', :collection => @brands %>
-	<div class="catalogue-option">
-		<div class="internal">
-			<%= link_to "#", data: { brand: "all" } do %>
-			<%= image_tag "missing_catalogue.png" %>
-			<h5><span>Todas</span></h5>
-			<% end %>
-		</div>
-	</div>
 </div>

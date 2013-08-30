@@ -11,7 +11,8 @@ Autofrio::Application.routes.draw do
 
   match '/empresa',    to: 'static_pages#empresa'
   match '/catalogo',    to: 'catalogue#select_category'
-  match '/catalogo/:category_id/brands' => 'catalogue#select_brand', :as => :cbrand
+  match '/catalogo/brands' => 'catalogue#select_brand', :as => :cbrand
+  match '/catalogo/lines' => 'catalogue#select_line', :as => :cline
   match '/contacto',   to: 'static_pages#contacto'
   match '/admin',    to: 'static_pages#admin'
 

@@ -2,24 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-$ ->
-	$("a[data-category]").click ->
-		category_id = $(this).data("category")
-		$('#filter_category').val(category_id)
-		$('#filter_form').submit()
-
-$ ->
-	$("a[data-brand]").click ->
-		brand_id = $(this).data("brand")
-		$('#filter_brand').val(brand_id)
-		$('#filter_form').submit()
-
-$ ->
-	$("a[data-line]").click ->
-		line_id = $(this).data("line")
-		$('#filter_line').val(line_id)
-		$('#filter_form').submit()
-
 jQuery ->
 	$('#products-table').dataTable
 		aaSorting: [[0,'asc'], [1,'asc'], [2,'asc'], [3,'asc']]
