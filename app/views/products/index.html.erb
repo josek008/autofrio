@@ -1,4 +1,4 @@
-<% provide(:title, 'Productos') %>
+<% provide(:title, "#{@selected_category.name} - #{@selected_brand.name} - #{@selected_line.name}") %>
 
 <%= form_tag cbrand_url, id: "filter_form" , method: "get" do |f| %>
 <%= hidden_field :category, :id, :value => "#{@selected_category.id}" %>
@@ -7,6 +7,10 @@
 <% end %>
 <div class="row-fluid">
 	<div class="span3">
+		<div class="catalog-box">
+			<h3>Busqueda</h3>
+			<%= render "shared/search_form" %>
+		</div>
 		<div class="catalog-box">
 			<ul>
 				<h3>Categorias</h3>
@@ -17,13 +21,10 @@
 		</div>
 	</div>
 	<div class="catalog-box span9">
-		<h4><%= "Productos en esta busqueda: #{@products.count}" %></h4>
 		<table class="table table-hover table-condensed" id="products-table">
 			<thead>
-				<th>Lineas</th>
-				<th>Comentarios</th>
-				<th>Categoria</th>
-				<th>Ref</th>
+				<th>Descripcion</th>
+				<th>Referencia</th>
 				<th>Imagen</th>
 				<th>Acciones</th>
 			</thead>

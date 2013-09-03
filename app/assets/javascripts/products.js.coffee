@@ -4,7 +4,7 @@
 
 jQuery ->
 	$('#products-table').dataTable
-		aaSorting: [[0,'asc'], [1,'asc'], [2,'asc'], [3,'asc']]
+		aaSorting: [[1,'asc'], [0,'asc']]
 		oLanguage:
 			sProcessing: "Procesando..."
 			sLengthMenu: "Mostrar _MENU_ registros"
@@ -25,3 +25,4 @@ jQuery ->
 		bPaginate: true,
 		sPaginationType: "bootstrap",
 		iDisplayLength: 100
+		sDom: "tipr"

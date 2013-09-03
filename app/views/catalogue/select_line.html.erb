@@ -1,4 +1,4 @@
-<% provide(:title, 'Catálogo') %>
+<% provide(:title, "#{@selected_category.name} - #{@selected_brand.name}") %>
 
 <%= form_tag products_path, id: "filter_form", method: "get" do |f| %>
 <%= hidden_field :category, :id, :value => "#{@selected_category.id}" %>
@@ -7,6 +7,8 @@
 <% end %>
 
 <legend>Selecciona una linea</legend>
+
+<%= render "shared/search_form" %>
 
 <div class="row">
 	<%= render :partial => 'line', :collection => @lines %>

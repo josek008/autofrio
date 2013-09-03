@@ -1,0 +1,23 @@
+<% provide(:title, 'Resultados de Búsqueda') %>
+
+<legend><b>Productos encontrados: </b><%="#{@products.count}"%></legend>
+
+<div class="row-fluid">
+	<div class="catalog-box span12">
+		<table class="table table-hover table-condensed" id="search-table">
+			<thead>
+				<th>Linea</th>
+				<th>Descripcion</th>
+				<th>Categoria</th>
+				<th>Referencia</th>
+				<th>Imagen</th>
+				<th>Acciones</th>
+			</thead>
+			<tbody>
+				<% if @products.any? %>
+				<%= render :partial => 'search_result', :collection => @products %>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>

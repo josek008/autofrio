@@ -17,4 +17,8 @@ class CatalogueController < ApplicationController
 		@selected_line = Line.new
 	end
 
+	def search
+		@products = Product.by_search_word_like(params[:search])
+	end
+
 end

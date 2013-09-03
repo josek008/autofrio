@@ -35,4 +35,10 @@ class Product < ActiveRecord::Base
 	validates_attachment_size :photo, :less_than => 5.megabytes
 	validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
 
+	def self.by_search_word_like(word)
+		joins(:brands, :category).
+		where("products.reference LIKE ? OR products.comments LIKE ? OR brands.name LIKE ? OR lines.name LIKE ? OR categories.name LIKE ?", "%#{word}%", "%#{word}%", "%#{word}%", "%#{word}%", "%#{word}%").uniq
+	end
+
+
 end
