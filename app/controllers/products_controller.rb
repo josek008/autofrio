@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
 
 		if @product.save
 			flash[:success] = "Producto creado satisfactoriamente!"
-			redirect_to products_url
+			redirect_to @product
 		else
 			render 'new'
 		end
@@ -28,7 +28,7 @@ class ProductsController < ApplicationController
 		@product = Product.find(params[:id])
 		if @product.update_attributes(params[:product])
 			flash[:success] = "Producto actualizado."
-			redirect_to product_url
+			redirect_to @product
 		else
 			render 'edit'
 		end
@@ -37,7 +37,7 @@ class ProductsController < ApplicationController
 	def destroy
 		Product.find(params[:id]).destroy
 		flash[:success] = "Producto eliminado."
-		redirect_to products_url
+		redirect_to catalogo_url
 	end
 
 	def index
