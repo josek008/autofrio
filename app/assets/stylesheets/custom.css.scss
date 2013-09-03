@@ -79,13 +79,13 @@ body {
 	background: #3f6d98;
 	z-index: 1000px;
 	overflow: hidden;
-	h1 {
+	h2 {
 		margin-top: 20px;
 		margin-bottom: 10px;
 		color: #fff;
 		text-align: left;
 		text-shadow: 0px 2px 0px rgba(0,0,0,0.2);
-		font-size: 40px;
+		font-size: 26px;
 	}
 }
 
@@ -187,4 +187,9 @@ body {
 			margin-bottom: 0px;
 		}
 	}
+}
+
+#search-form {
+	float: right;
+	margin-top: 24px;
 }

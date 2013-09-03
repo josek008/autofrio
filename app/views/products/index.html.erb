@@ -6,24 +6,10 @@
 <%= hidden_field :line, :id, :value => "#{@selected_line.id}" %>
 <% end %>
 <div class="row-fluid">
-	<div class="span3">
-		<div class="catalog-box">
-			<h3>Busqueda</h3>
-			<%= render "shared/search_form" %>
-		</div>
-		<div class="catalog-box">
-			<ul>
-				<h3>Categorias</h3>
-				<% @categories.each do |c| %>
-				<li><%= link_to "#{c.name}", "#", data: { category: c.id } %></li>
-				<% end %>
-			</ul>
-		</div>
-	</div>
-	<div class="catalog-box span9">
+	<div class="catalog-box span12">
 		<table class="table table-hover table-condensed" id="products-table">
 			<thead>
-				<th>Descripcion</th>
+				<th>Descripción</th>
 				<th>Referencia</th>
 				<th>Imagen</th>
 				<th>Acciones</th>
