@@ -1,3 +1,5 @@
+$('#showcase').carousel()
+
 $ ->
 	$("a[data-category]").click ->
 		category_id = $(this).data("category")

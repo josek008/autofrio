@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-jQuery ->
+$ ->
 	$('#search-table').dataTable
 		aaSorting: [[0,'asc'], [1,'asc'], [2,'asc'], [3,'asc'] ]
 		oLanguage:

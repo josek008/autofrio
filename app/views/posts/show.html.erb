@@ -1,0 +1,14 @@
+<% provide(:title, "#{@post.title}") %>
+
+<div class="row">
+	<div class="span3">
+		<%= image_tag @post.image.url(:large), class: "img-polaroid" %>
+	</div>
+	<div class="span9">
+		<ul>
+			<li><strong>Titulo: </strong><%= @post.title %></li>
+			<li><strong>Mensaje: </strong><%= @post.message %></li>
+			<li><strong>Orden: </strong><%= @post.order %></li>
+		</ul>
+	</div>
+</div>

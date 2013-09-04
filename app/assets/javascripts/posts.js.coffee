@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $ ->
-	$('#lines-table').dataTable
+	$('#posts-table').dataTable
 		aaSorting: [[0,'asc'], [1,'asc'], [2,'asc']]
 		oLanguage:
 			sProcessing: "Procesando..."
@@ -25,3 +25,4 @@ $ ->
 		bPaginate: true,
 		sPaginationType: "bootstrap",
 		iDisplayLength: 100
+		sDom: "tipr"

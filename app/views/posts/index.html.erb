@@ -1,0 +1,24 @@
+<% provide(:title, "Noticias") %>
+
+<div class="row-fluid">
+	<div class="catalog-box span12">
+		<table class="table table-hover table-condensed" id="posts-table">
+			<thead>
+				<th>Orden</th>
+				<th>Titulo</th>
+				<th>Mensaje</th>
+				<th>Imagen</th>
+				<th>Acciones</th>
+			</thead>
+			<tbody>
+				<% if @posts.any? %>
+				<%= render @posts %>
+				<% end %>
+			</tbody>
+		</table>
+
+		<ul class="nav nav-pills">
+			<li><%= link_to 'Crear nueva noticia', new_post_path %></li>
+		</ul>
+	</div>
+</div>

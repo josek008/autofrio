@@ -6,6 +6,7 @@ Autofrio::Application.routes.draw do
   resources :lines
   resources :categories
   resources :products
+  resources :posts
 
   resources :sessions,  only: [:new, :create, :destroy] 
 

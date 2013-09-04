@@ -1,44 +1,76 @@
 <% provide(:title, '¡Bienvenido a Autofrío Importaciones SAS!') %>
-<h1 class="center">Somos su mejor decisión en el mercado de autopartes</h1>
-<p class="center muted">Estas son unas de las razones...</p>
-<br>
-<div id="features">
-	<div class="row">
-		<div class="span4">
-			<%= image_tag "gama.png" %>
-			<p>¡Contamos con el más amplio catálogo del mercado!</p>
+
+<% if @posts.any? %>
+<div id="showcase" class="carousel slide">
+	<ol class="carousel-indicators">
+		<% @posts.each_with_index do |post, index| %>
+		<% if index == 0 %>
+		<li data-target="#showcase" data-slide-to="<%="#{index}" %>" class="active"></li>
+		<% else %>
+		<li data-target="#showcase" data-slide-to="<%="#{index}" %>"></li>
+		<% end %>
+		<% end %>
+	</ol>
+	<div class="carousel-inner">
+		<% @posts.each_with_index do |post, index| %>
+		<% if index == 0 %>
+		<div class="item active">
+		<% else %>
+		<div class="item">
+		<% end %>
+			<% image_tag post.image.url(:large) %>
+			<div class="carousel-caption">
+				<h4><%= post.title %></h4>
+				<p><%= post.message %></p>
+			</div>	
 		</div>
-		<div class="span4">
-			<%= image_tag "quality.png" %>
-			<p>Somos sinónimo de Calidad y Eficiencia</p>
+		<% end %>
+	</div>
+	<a class="carousel-control left" href="#showcase" data-slide="prev">&lsaquo;</a>
+  	<a class="carousel-control right" href="#showcase" data-slide="next">&rsaquo;</a>
+</div>
+<% end %>
+
+	<h1 class="center">Somos su mejor decisión en el mercado de autopartes</h1>
+	<p class="center muted">Estas son unas de las razones...</p>
+	<br>
+	<div id="features">
+		<div class="row">
+			<div class="span4">
+				<%= image_tag "gama.png" %>
+				<p>¡Contamos con el más amplio catálogo del mercado!</p>
+			</div>
+			<div class="span4">
+				<%= image_tag "quality.png" %>
+				<p>Somos sinónimo de Calidad y Eficiencia</p>
+			</div>
+			<div class="span4">
+				<%= image_tag "people.png" %>
+				<p>Nuestro personal es altamente calificado</p>
+			</div>
 		</div>
-		<div class="span4">
-			<%= image_tag "people.png" %>
-			<p>Nuestro personal es altamente calificado</p>
+		<br>
+		<div class="row">
+			<div class="span4">
+				<%= image_tag "cargo.png" %>
+				<p>Somos importadores directos</p>
+			</div>
+			<div class="span4">
+				<%= image_tag "fast.png" %>
+				<p>¡Servicio a Domicilio Rápido y Eficaz!</p>
+			</div>
+			<div class="span4">
+				<%= image_tag "tech.png" %>
+				<p>Trabajamos con tecnologia de punta</p>
+			</div>
 		</div>
 	</div>
 	<br>
-	<div class="row">
-		<div class="span4">
-			<%= image_tag "cargo.png" %>
-			<p>Somos importadores directos</p>
-		</div>
-		<div class="span4">
-			<%= image_tag "fast.png" %>
-			<p>¡Servicio a Domicilio Rápido y Eficaz!</p>
-		</div>
-		<div class="span4">
-			<%= image_tag "tech.png" %>
-			<p>Trabajamos con tecnologia de punta</p>
-		</div>
-	</div>
-</div>
-<br>
-<hr>
-<br>
-<div class="center row">
-	<%= image_tag "distribuidor.png" %>
+	<hr>
 	<br>
-	<h4 class="muted">Únicos Distribuidores Autorizados</h4>
-	<p>Somos los únicos distribuidores autorizados en el país de las grandes marcas de autopartes: Denso, Actecmax y Sanden.</p>
-</div>
+	<div class="center row">
+		<%= image_tag "distribuidor.png" %>
+		<br>
+		<h4 class="muted">Únicos Distribuidores Autorizados</h4>
+		<p>Somos los únicos distribuidores autorizados en el país de las grandes marcas de autopartes: Denso, Actecmax y Sanden.</p>
+	</div>
