@@ -4,7 +4,7 @@
 	<%= f.label "Contenido", class: "control-label" %>
 	<%= f.text_field :message, placeholder:"Incluye el contenido", required: true %>
 	<%= f.label "Orden", class: "control-label" %>
-	<%= f.text_field :order, placeholder:"Incluye el orden", required: true %>
+	<%= f.text_field :priority, placeholder:"Incluye el orden", required: true %>
 	
 	<%= f.label "Imagen", class: "control-label" %>
 	<% if p.image.exists? %>

@@ -1,7 +1,15 @@
 <tr>
 	<td><%= product.comments%></td>
 	<td><%= product.reference%></td>
-	<td><%= image_tag product.photo.url(:thumb) %></td>
+	<td><%= link_to "#lb-#{product.id}", :data => { :toggle => "lightbox" } do %>
+		<%= image_tag product.photo.url(:thumb) %>
+		<% end %>
+	</td>
+	<div id="<%= "lb-#{product.id}" %>" class="lightbox hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="lightbox-content">
+			<%= image_tag product.photo.url(:medium) %>
+		</div>
+	</div>
 	
 	<td>
 		<div class="btn-group">
