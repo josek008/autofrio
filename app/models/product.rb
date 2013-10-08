@@ -15,7 +15,8 @@
 #
 
 class Product < ActiveRecord::Base
-	attr_accessible :category_id, :comments, :reference, :photo, :line_ids
+	attr_accessible :category_id, :comments, :reference, :photo, :line_ids, :tag_list
+	acts_as_taggable
 
 	scope :by_category, lambda{|category_id| where(:category_id => category_id) unless category_id.nil?}
 	scope :by_brand, lambda{|brand_id| select("DISTINCT(products.id), products.*").
@@ -36,6 +37,7 @@ class Product < ActiveRecord::Base
 	validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
 
 	def self.by_search_word_like(word)
+		self.tagged_with(word, :any => true) |
 		joins(:brands, :category).
 		where("products.reference LIKE ? OR products.comments LIKE ? OR brands.name LIKE ? OR lines.name LIKE ? OR categories.name LIKE ?", "%#{word}%", "%#{word}%", "%#{word}%", "%#{word}%", "%#{word}%").uniq
 	end
