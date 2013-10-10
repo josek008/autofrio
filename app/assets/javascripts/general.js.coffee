@@ -1,5 +1,5 @@
 $ ->
-  $("#showcase").carousel interval: 2000
+  $("#showcase").carousel interval: 4000
 
 $ ->
 	$("a[data-category]").click ->
