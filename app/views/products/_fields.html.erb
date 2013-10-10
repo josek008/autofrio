@@ -5,10 +5,10 @@
 	<%= f.text_field :comments, placeholder:"Incluye algunos comentarios", required: true %>
 	<%= f.label "Pertenece a la categoria:", class: "control-label" %>
 	<%= f.collection_select :category_id, @categories, :id, :name %>
-	<%= f.label "Codigos equivalentes: (separados por comas)", class: "control-label" %>
-	<%= f.text_field :tag_list %>
 	<%= f.label "Selecciona las lineas compatibles", class: "control-label" %>
 	<%= f.collection_select :line_ids, @lines, :id, :line_with_brand, {}, {:multiple => true} %>
+	<%= f.label "Codigos equivalentes: (separados por comas)", class: "control-label" %>
+	<%= f.text_field :tag_list %>
 	<%= f.label "Imagen", class: "control-label" %>
 	<% if p.photo.exists? %>
 	<%= image_tag p.photo.url(:medium) %>
