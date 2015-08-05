@@ -31,8 +31,8 @@ class Product < ActiveRecord::Base
 	def self.search_with(word)
 		self.tagged_with(word, :any => true) |
 		joins(:brands, :category).
-		where("products.reference LIKE ? OR products.comments LIKE ? OR brands.name LIKE ? OR lines.name LIKE ? 
-				OR categories.name LIKE ?", "%#{word}%", "%#{word}%", "%#{word}%", "%#{word}%", "%#{word}%").uniq
+		where("lower(products.reference) LIKE :search OR lower(products.comments) LIKE :search OR lower(brands.name) LIKE :search 
+			OR lower(lines.name) LIKE :search OR lower(categories.name) LIKE :search", { search: "%#{word.downcase}%" } ).uniq
 	end
 
 	def self.available_filters(options = {})

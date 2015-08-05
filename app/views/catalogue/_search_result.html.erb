@@ -3,7 +3,7 @@
 	<td><%= format_lines(search_result) %></td>
 	<td><%= search_result.comments %></td>
 	<td><%= search_result.reference %></td>
-	<td><a href="<%= search_result.photo.url(:thumb) %>" class="fancybox"><%= image_tag(search_result.photo.url(:thumb), class: "img-thumbnail") %></a></td>
+	<td><a href="<%= search_result.photo.url(:medium) %>" class="fancybox"><%= image_tag(search_result.photo.url(:thumb), class: "img-thumbnail") %></a></td>
 	
 	<td>
 		<div class="btn-group">
