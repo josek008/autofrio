@@ -1,14 +1,13 @@
 <div class="header">
 	<div class="container">
-		<div class="row-fluid">
+		<div class="row">
 			<div id="logo">
 				<a href="/">
 					<%= image_tag "logo_nuevo2.png", alt: "Calidad y Eficiencia" %>
 				</a>
 			</div>
 			<ul class="nav nav-pills">
-				<li><%= link_to "Inicio", root_path %></li>
-				<li><%= link_to "Empresa", empresa_path %></li>
+				<li><%= link_to "Autofrío", root_path %></li>
 				<li><%= link_to "Catálogo", catalogo_path %></li>
 				<li><%= link_to "Contacto", contacto_path %></li>
 				<% if signed_in? %>

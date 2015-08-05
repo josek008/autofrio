@@ -17,8 +17,8 @@ namespace :db do
 end
 
 def create_admin_user
-	admin = User.create!(name: "Eduard L.", 
-		email: "autofrioimportaciones@hotmail.com",
+	admin = User.create!(name: "AdminTest", 
+		email: "test@test.com",
 		password: "foobar",
 		password_confirmation: "foobar")
 end
@@ -121,7 +121,7 @@ def make_products
 		product = Product.new
 		product.category = Category.all.sample
 		3.times do 
-			product.lines << Line.all.sample
+			product.lines.push(Line.all.sample)
 		end
 
 		product.comments = Faker::Lorem.sentence(5)

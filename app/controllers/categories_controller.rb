@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-	before_filter :signed_in_user
+	before_action :signed_in_user
 
 	def new
 		@category = Category.new

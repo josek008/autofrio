@@ -1,24 +1,24 @@
 class CatalogueController < ApplicationController
 	
 	def select_category
-		@categories = Category.all
+		@categories = Category.with_products
 	end
 
 	def select_brand
-		@selected_category = Category.find(params[:category][:id])
-		@brands = @selected_category.brands	
-		@selected_brand = Brand.new
+		@category = Category.find(params[:category][:id])
+		@brand = Brand.new
+		@options_for_brand = Product.available_filters({ category: @category.id, return_brands: true })
 	end
 
 	def select_line
-		@selected_category = Category.find(params[:category][:id])
-		@selected_brand = Brand.find(params[:brand][:id])
-		@lines = @selected_category.lines.merge(Category.with_brand(@selected_brand))
-		@selected_line = Line.new
+		@category = Category.find(params[:category][:id])
+		@brand = Brand.find(params[:brand][:id])
+		@line = Line.new
+		@options_for_line = Product.available_filters({ category: @category.id, brand: @brand.id, return_lines: true })	
 	end
 
 	def search
-		@products = Product.by_search_word_like(params[:search])
+		@products = Product.search_with(params[:search])
 	end
 
 end

@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $ ->
-	$('#products-table').dataTable
+	$('#products-table').DataTable
 		aaSorting: [[0,'asc'], [1,'asc']]
 		oLanguage:
 			sProcessing: "Procesando..."
@@ -23,6 +23,6 @@ $ ->
 				sLast: "Último"
 
 		bPaginate: true,
-		sPaginationType: "bootstrap",
+		sPaginationType: "full_numbers",
 		iDisplayLength: 100
 		sDom: "tipr"

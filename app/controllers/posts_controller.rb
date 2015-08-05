@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_filter :signed_in_user
+  before_action :signed_in_user
 
   def new
     @post = Post.new

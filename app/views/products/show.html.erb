@@ -1,10 +1,10 @@
 <% provide(:title, "#{@product.category.name} - #{@product.reference}") %>
 
 <div class="row">
-	<div class="span3">
-		<%= image_tag @product.photo.url(:medium), class: "img-polaroid" %>
+	<div class="col-md-3">
+		<%= image_tag @product.photo.url(:medium), class: "img-thumbnail" %>
 	</div>
-	<div class="span9">
+	<div class="col-md-9">
 		<ul>
 			<li><strong>Referencia: </strong><%= @product.reference %></li>
 			<li><strong>Categoria: </strong><%= @product.category.name %></li>

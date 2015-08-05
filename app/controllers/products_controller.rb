@@ -1,9 +1,9 @@
 class ProductsController < ApplicationController
-	before_filter :signed_in_user, only: [:new, :create, :edit, :update, :destroy]
+	before_action :signed_in_user, only: [:new, :create, :edit, :update, :destroy]
 
 	def new
 		@product = Product.new
-		@lines = Line.ordered_by_brand.all
+		@lines = Line.ordered_by_brand_name.all
 		@categories = Category.all
 	end
 
@@ -20,7 +20,7 @@ class ProductsController < ApplicationController
 
 	def edit
 		@product = Product.find(params[:id])
-		@lines = Line.ordered_by_brand.all
+		@lines = Line.ordered_by_brand_name.all
 		@categories = Category.all
 	end
 
@@ -43,12 +43,11 @@ class ProductsController < ApplicationController
 	def index
 		@categories = Category.all
 
-		@selected_category = Category.find(params[:category][:id])
-		@selected_brand = Brand.find(params[:brand][:id])
-		@selected_line = Line.find(params[:line][:id])
+		@category = Category.find(params[:category][:id])
+		@brand = Brand.find(params[:brand][:id])
+		@line = Line.find(params[:line][:id])
 		
-		@products = Product.by_category(@selected_category.id).by_brand(@selected_brand.id).by_line(@selected_line.id)
-
+		@products = Product.filtered_by({ category: @category.id, brand: @brand.id, line: @line.id }).to_a
 	end
 
 	def show

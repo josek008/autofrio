@@ -1,13 +1,13 @@
-<% provide(:title, "#{@selected_category.name} - #{@selected_brand.name}") %>
+<% provide(:title, "#{@category.name} - #{@brand.name}") %>
 
 <%= form_tag products_path, id: "filter_form", method: "get" do |f| %>
-<%= hidden_field :category, :id, :value => "#{@selected_category.id}" %>
-<%= hidden_field :brand, :id, :value => "#{@selected_brand.id}" %>
-<%= hidden_field :line, :id, :value => "#{@selected_line.id}" %>
+<%= hidden_field :category, :id, :value => "#{@category.id}" %>
+<%= hidden_field :brand, :id, :value => "#{@brand.id}" %>
+<%= hidden_field :line, :id, :value => "#{@line.id}" %>
 <% end %>
 
 <legend>Selecciona una linea</legend>
 
 <div class="row">
-	<%= render :partial => 'line', :collection => @lines %>
+	<%= render :partial => 'line', :collection => @options_for_line %>
 </div>

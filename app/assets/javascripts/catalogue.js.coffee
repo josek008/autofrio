@@ -23,6 +23,6 @@ $ ->
 				sLast: "Último"
 
 		bPaginate: true,
-		sPaginationType: "bootstrap",
+		sPaginationType: "full_numbers",
 		iDisplayLength: 100
 		sDom: "tipr"

@@ -1,13 +1,10 @@
 <% provide(:title, 'Editar Marca') %>
 
 <div class="row">
-	<div class="span4 offset3">
-		<%= form_for @brand, class: "form-horizontal", :html => { :multipart => true } do |f| %>
-		<%= render 'shared/error_messages', object: f.object %>
-		<%= render 'fields', :f => f, :b => @brand %>
-		<div class="actions">
-			<%= f.submit "Guardar", class: "btn btn-large btn-primary" %>
-		</div>
+	<div class="form-autofrio">
+		<%= form_for @brand, html: { multipart: true, class: "form-horizontal" } do |f| %>
+			<%= render 'shared/error_messages', object: f.object %>
+			<%= render 'fields', :f => f, :b => @brand %>
 		<% end %>
 	</div>
 </div>

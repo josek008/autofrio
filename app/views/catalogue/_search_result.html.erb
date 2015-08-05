@@ -3,20 +3,11 @@
 	<td><%= format_lines(search_result) %></td>
 	<td><%= search_result.comments %></td>
 	<td><%= search_result.reference %></td>
-	<td><%= link_to "#lb-#{search_result.id}", :data => { :toggle => "lightbox" } do %>
-		<%= image_tag search_result.photo.url(:thumb) %>
-		<% end %>
-	</td>
-	<div id="<%= "lb-#{search_result.id}" %>" class="lightbox hide fade" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="lightbox-content">
-			<%= image_tag search_result.photo.url(:medium) %>
-		</div>
-	</div>
+	<td><a href="<%= search_result.photo.url(:thumb) %>" class="fancybox"><%= image_tag(search_result.photo.url(:thumb), class: "img-thumbnail") %></a></td>
 	
 	<td>
 		<div class="btn-group">
-			<button class="btn dropdown-toggle" data-toggle="dropdown">
-				<i class="icon-cog"></i>
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				<span class="caret"></span>
 			</button>
 			<ul class="dropdown-menu">

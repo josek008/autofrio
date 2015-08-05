@@ -10,16 +10,15 @@ Autofrio::Application.routes.draw do
 
   resources :sessions,  only: [:new, :create, :destroy] 
 
-  match '/empresa',    to: 'static_pages#empresa'
-  match '/catalogo',    to: 'catalogue#select_category'
-  match '/catalogo/brands' => 'catalogue#select_brand', :as => :cbrand
-  match '/catalogo/lines' => 'catalogue#select_line', :as => :cline
-  match '/catalogo/search' => 'catalogue#search', :as => :search
-  match '/contacto',   to: 'static_pages#contacto'
-  match '/admin',    to: 'static_pages#admin'
+  get '/catalogo',    to: 'catalogue#select_category'
+  get '/catalogo/brands' => 'catalogue#select_brand', :as => :cbrand
+  get '/catalogo/lines' => 'catalogue#select_line', :as => :cline
+  get '/catalogo/search' => 'catalogue#search', :as => :search
+  get '/contacto',   to: 'static_pages#contacto'
+  get '/admin',    to: 'static_pages#admin'
 
-  match '/signin',  to: 'sessions#new'
-  match '/signout', to: 'sessions#destroy', via: :delete
+  get '/signin',  to: 'sessions#new'
+  get '/signout', to: 'sessions#destroy', via: :delete
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,7 +1,7 @@
 # encoding: UTF-8
 class UsersController < ApplicationController
-	before_filter :signed_in_user, 	only: [:edit, :update]
-	before_filter :correct_user,	only: [:edit, :update]
+	before_action :signed_in_user, 	only: [:edit, :update]
+	before_action :correct_user,	only: [:edit, :update]
 
 	def edit
 	end

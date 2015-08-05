@@ -15,8 +15,7 @@
 #
 
 class Post < ActiveRecord::Base
-	attr_accessible :message, :priority, :title, :image
-	default_scope order('priority ASC')
+	default_scope { order('priority ASC') }
 
 	has_attached_file :image, :styles => { :large => "900x350>", :thumb => "360x140>" }, :default_url => "missing_:style.png"
 

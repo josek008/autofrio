@@ -2,6 +2,17 @@ $ ->
   $("#showcase").carousel interval: 4000
 
 $ ->
+	$("a.fancybox").fancybox()
+
+$ ->
+	$(".multiselect").multiselect
+		enableCaseInsensitiveFiltering: true
+		filterPlaceholder: 'Buscar'
+		nonSelectedText: 'Ninguno seleccionado!'
+		nSelectedText: ' selecciones'
+		maxHeight: 250
+	
+$ ->
 	$("a[data-category]").click ->
 		category_id = $(this).data("category")
 		$('#category_id').val(category_id)

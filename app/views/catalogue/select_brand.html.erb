@@ -1,12 +1,12 @@
-<% provide(:title, "#{@selected_category.name}") %>
+<% provide(:title, "#{@category.name}") %>
 
-<%= form_tag cline_path, id: "filter_form" do |f| %>
-<%= hidden_field :category, :id, :value => "#{@selected_category.id}" %>
-<%= hidden_field :brand, :id, :value => "#{@selected_brand.id}" %>
+<%= form_tag cline_url, id: "filter_form", method: "get" do |f| %>
+<%= hidden_field :category, :id, :value => "#{@category.id}" %>
+<%= hidden_field :brand, :id, :value => "#{@brand.id}" %>
 <% end %>
 
 <legend>Selecciona una marca</legend>
 
 <div class="row">
-	<%= render :partial => 'brand', :collection => @brands %>
+	<%= render :partial => 'brand', :collection => @options_for_brand %>
 </div>

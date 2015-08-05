@@ -1,7 +1,7 @@
 <div class="catalogue-option">
 	<div class="internal">
 		<%= link_to "#", data: { category: category.id } do %>
-			<%= image_tag category.photo.url(:catalogue) %>
+			<%= image_tag category.photo.url(:catalogue), class: "img-responsive center-block" %>
 			<h5><span><%= category.name %></span></h5>
 		<% end %>
 	</div>

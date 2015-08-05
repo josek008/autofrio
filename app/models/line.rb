@@ -14,21 +14,19 @@
 #
 
 class Line < ActiveRecord::Base
-	attr_accessible :name, :photo, :brand_id 
-
-	scope :ordered_by_name, order("name ASC")
-	scope :ordered_by_brand, joins(:brand).order("brands.name ASC")
-
 	belongs_to :brand
 	has_and_belongs_to_many :products
 	has_attached_file :photo, :styles => { :medium => "300x300>", :catalogue => "200x200>", :thumb => "100x100>" }, :default_url => "missing_:style.png"
 
-	validates :name, presence: true
-	validates :brand_id, presence: true
+	validates :name, :brand, presence: true
 	validates_attachment_size :photo, :less_than => 5.megabytes
 	validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
 
-	def line_with_brand
+	scope :ordered_by_name, -> { order('lines.name ASC') }
+	scope :ordered_by_brand_name, -> { includes(:brand).order('brands.name ASC, lines.name ASC') }
+	scope :with_products, -> { select { |line| line.products.count > 0 } }
+
+	def large_name
 		"#{self.brand.name} - #{self.name}"
 	end
 

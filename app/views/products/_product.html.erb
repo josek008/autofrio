@@ -1,29 +1,17 @@
 <tr>
-	<td><%= product.comments%></td>
-	<td><%= product.reference%></td>
-	<td><%= link_to "#lb-#{product.id}", :data => { :toggle => "lightbox" } do %>
-		<%= image_tag product.photo.url(:thumb) %>
-		<% end %>
-	</td>
-	<div id="<%= "lb-#{product.id}" %>" class="lightbox hide fade" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="lightbox-content">
-			<%= image_tag product.photo.url(:medium) %>
-		</div>
-	</div>
-	
+	<td><%= product.comments %></td>
+	<td><%= product.reference %></td>
+	<td><a href="<%= product.photo.url(:thumb) %>" class="fancybox"><%= image_tag(product.photo.url(:thumb), class: "img-thumbnail") %></a></td>
 	<td>
 		<div class="btn-group">
-			<button class="btn dropdown-toggle" data-toggle="dropdown">
-				<i class="icon-cog"></i>
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				<span class="caret"></span>
 			</button>
 			<ul class="dropdown-menu">
-
 				<li><%= link_to 'Ver', product %></li>
 				<% if signed_in? %>
 				<li><%= link_to 'Editar', edit_product_path(product) %></li>
-				<li><%= link_to 'Eliminar', product, method: :delete,
-				data: {confirm: "¿Realmente desea eliminar este producto?"} %></li>
+				<li><%= link_to 'Eliminar', product, method: :delete, data: { confirm: "¿Realmente desea eliminar este producto?" } %></li>
 				<% end %>
 			</ul>
 		</div>
