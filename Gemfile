@@ -13,7 +13,7 @@ gem 'bootstrap-will_paginate'
 gem 'state_machine', '1.2.0'
 gem 'acts-as-taggable-on'
 gem 'paperclip'
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 
 group :development, :test do
   gem 'annotate', '2.5.0'
