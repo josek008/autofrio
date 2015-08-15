@@ -7,7 +7,7 @@ class LinesController < ApplicationController
 	end
 
 	def create
-		@line = Line.new(params[:line])
+		@line = Line.new(line_params)
 
 		if @line.save
 			flash[:success] = "Linea creada satisfactoriamente!"
@@ -24,7 +24,7 @@ class LinesController < ApplicationController
 
 	def update
 		@line = Line.find(params[:id])
-		if @line.update_attributes(params[:line])
+		if @line.update_attributes(line_params)
 			flash[:success] = "Linea actualizada."
 			redirect_to lines_url
 		else
@@ -44,5 +44,11 @@ class LinesController < ApplicationController
 
 	def show
 		@line = Line.find(params[:id])
+	end
+
+	private
+
+	def line_params
+		params.require(:line).permit(:name, :photo, :brand)
 	end
 end

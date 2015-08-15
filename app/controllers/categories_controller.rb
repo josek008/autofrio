@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
 	end
 
 	def create
-		@category = Category.new(params[:category])
+		@category = Category.new(category_params)
 
 		if @category.save
 			flash[:success] = "Categoria creada satisfactoriamente!"
@@ -22,7 +22,7 @@ class CategoriesController < ApplicationController
 
 	def update
 		@category = Category.find(params[:id])
-		if @category.update_attributes(params[:category])
+		if @category.update_attributes(category_params)
 			flash[:success] = "Categoria actualizada."
 			redirect_to categories_url
 		else
@@ -42,5 +42,11 @@ class CategoriesController < ApplicationController
 
 	def show
 		@category = Category.find(params[:id])
+	end
+
+	private
+
+	def category_params
+		params.require(:category).permit(:name, :photo)
 	end
 end
