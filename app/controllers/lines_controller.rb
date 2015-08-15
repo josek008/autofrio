@@ -49,6 +49,6 @@ class LinesController < ApplicationController
 	private
 
 	def line_params
-		params.require(:line).permit(:name, :photo, :brand)
+		params.require(:line).permit(:name, :photo, :brand_id)
 	end
 end
